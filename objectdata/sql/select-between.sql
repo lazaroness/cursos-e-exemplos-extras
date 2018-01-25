@@ -1,0 +1,1 @@
+select id, numero, empresa_id FROM pedido where id BETWEEN 1 AND 10 ORDER BY id;

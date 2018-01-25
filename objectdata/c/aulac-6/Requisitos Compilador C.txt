@@ -1,0 +1,11 @@
+#--------------------------------------------------------------------------------
+# Requisitos Minimos Compilador C
+#--------------------------------------------------------------------------------
+-> Pre-processamento
+-> Compilação
+-> Linkedição
+
+Para compilar arquivos que estao no include e no diretorio local
+- gcc arquivo.c -I .
+
+Os arquivos .h nao devem conter o corpo da função apenas o prototipo.

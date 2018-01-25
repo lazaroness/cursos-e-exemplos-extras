@@ -1,0 +1,23 @@
+{
+  "development": {
+    "host": "localhost",
+    "database": "mydatabase",
+    "user": "postgres",
+    "adapter": "charon.ActiveRecord.SqliteAdapter",
+    "password": "mypassword"
+  },
+  "production": {
+    "host": "localhost",
+    "database": "mydatabase",
+    "user": "myuser",
+    "adapter": "charon.ActiveRecord.SqliteAdapter",
+    "password": "mypassword"
+  },
+  "test": {
+    "host": "localhost",
+    "database": "charonapp_test",
+    "user": "myuser",
+    "adapter": "charon.ActiveRecord.SqliteAdapter",
+    "password": "mypassword"
+  }
+}

@@ -1,0 +1,2 @@
+Ao criar uma variavel normal ele armazena na pilha(sequencial)
+Ao utilizar o malloc ele armazena no rip(memoria dinamica, não sequencial, utiliza o espaço que estiver disponivel e caber o conteudo que necessita ser armazenado)

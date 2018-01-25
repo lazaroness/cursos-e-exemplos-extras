@@ -1,0 +1,16 @@
+#------------------------------------------------------------------------------
+# Treinamento de LUA
+#------------------------------------------------------------------------------
+# D, Rust, Go
+#------------------------------------------------------------------------------
+# 8 TIPOS
+  nil, boolean, number, string, table, function, corotina, userdata
+#------------------------------------------------------------------------------ Poll theads
+os.execute('eject')
+
+Conveter para string
+  tostring('teste')
+
+Verificando o tamanho da string
+  exemplo = "teste"
+  exemplo:len() => 5
