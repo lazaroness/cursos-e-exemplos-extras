@@ -1,0 +1,59 @@
+<%= form_for @pessoa do |f| %>
+  <% if @pessoa.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@pessoa.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @pessoa.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class='form'>
+    <tr>
+      <td class="field">NOME:</td>
+      <td class="field_value"><%= f.text_field :nome %></td>
+    </tr>
+    <tr>
+      <td class="field">TIPO:</td>
+      <td class="field_value"><%= f.select(:tipo , Pessoa::TIPO) %></td>
+    </tr>
+    <tr>
+      <td class="field">CPF/CNPJ:</td>
+      <td class="field_value"><%= f.text_field :cpf_cnpj %></td>
+    </tr>
+    <tr>
+      <td class="field">SEXO:</td>
+      <td class="field_value"><%= f.select(:sexo, Pessoa::SEXO) %></td>
+    </tr>
+    <tr>
+      <td class="field">DATA NASC/FUND:</td>
+      <td class="field_value"><%= f.text_field :data_nascimento_fundacao, {'data-mask'=>"00/00/0000"} %></td>
+    </tr>
+    <tr>
+      <td class="field">E-MAIL:</td>
+      <td class="field_value"><%= f.email_field :email %></td>
+    </tr>
+    <% if @pessoa.new_record? %>
+      <tr>
+        <td class="field">SENHA:</td>
+        <td class="field_value"><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td class="field">CONFIRMAÇÃO SENHA:</td>
+        <td class="field_value"><%= f.password_field :password_confirmation %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="actions" colspan='2'><%= f.submit "Cadastrar"%></td>
+    </tr>
+  </table>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#pessoa_data_nascimento_fundacao').mask("00/00/0000", {placeholder: "__/__/____"});
+    $('#pessoa_cpf_cnpj').mask("000.000.000-00", {placeholder: "___.___.___-__"});
+  });
+</script>

@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Deseja recarregar o Apache? [s/n] "
+read RESPOSTA
+test "$RESPOSTA" = "n" && exit
+echo "Iniciando em:"
+date
+
+service apache2 reload
+
+echo "Finalizado em:"
+date
+
+notify-send "Reload realizado com sucesso!" -i "/home/lazarone/Imagens/apache.png"

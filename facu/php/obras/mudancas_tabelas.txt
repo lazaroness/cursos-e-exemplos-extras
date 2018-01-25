@@ -1,0 +1,149 @@
+tb_permissao {
+	:permissao_id
+	:path
+	:descricao
+}
+
+tb_usuario {
+	:usuario_id
+	:nome
+	:email
+	:senha
+	:ativo - boolean
+	:telefone
+	:celular
+	:admin - boolean
+}
+
+tb_usuario_permissao {
+	:usuario_permissao_id
+	:usuario_id
+	:path
+}
+
+tb_funcionario {
+	:funcionario_id
+	:nome
+	:cpf
+	:cargo
+	:ativo - boolean
+	:telefone
+	:celular
+	:cep
+        :rua
+        :bairro
+        :cidade
+        :estado
+	:numero
+}
+
+tb_fornecedor {
+	:fornecedor_id
+	:nome
+	:telefone
+	:email
+	:cep
+        :rua
+        :bairro
+        :cidade
+        :estado
+	:numero
+}
+
+tb_tipo_produto {
+	:tipo_produto_id
+	:descricao
+}
+
+tb_produto {
+	:produto_id
+	:cor
+	:material
+	:preco_compra
+	:preco_venda
+	:tipo_produto_id
+	:fornecedor_id
+}
+
+
+
+tb_orcamento {
+	:orcamento_id
+	:valor
+	:apartamento_id
+}
+
+tb_orcamento_item {
+	:orcamento_item_id
+	:orcamento_id
+	:produto_id
+	:quantidade
+	:valor_unitario
+	:valor_total
+}
+
+tb_apartamento {
+	:apartamento_id
+	:cliente_id
+	:descricao
+	:data_inicio
+	:data_previsao_entrega
+	:data_ultima_atualizacao
+	:andamento
+	:cep
+	:numero
+}
+
+tb_apartamento_ambiente {
+	:apartamento_ambiente_id
+	:apartamento_id
+	:tipo
+}
+
+tb_etapa {
+	:etapa_id
+	:descricao
+	:apartamento_id
+	:liberar_orcamento - boolean
+}
+
+tb_cliente {
+	:cliente_id
+	:ativo - boolean
+	:email
+	:senha
+	:telefone
+	:celular
+	:cep
+        :rua
+        :bairro
+        :cidade
+        :estado
+	:numero
+}
+
+tb_cliente_fisico {
+	:cliente_id
+	:nome
+	:cpf
+	:data_nascimento
+}
+
+tb_cliente_juridica {
+	:cliente_id
+	:razao_social
+	:nome_fantasia
+	:cnpj
+	:data_fundacao
+}
+
+tb_configuracoes {
+	:configuracao_id
+	:empresa
+	:path_logo
+	:cor_primaria
+	:cor_secundaria
+	:descricao
+	:usuario_permite_editar_proprio_cadastro
+	:cliente_permite_editar_prodprio_cadastro
+}

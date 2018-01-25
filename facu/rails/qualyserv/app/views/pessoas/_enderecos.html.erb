@@ -1,0 +1,41 @@
+<style>
+  #enderecos {
+    border:1px black solid;
+  }
+
+  #enderecos th {
+    padding: 10px;
+  }
+
+  #enderecos td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<table id='titulo_enderecos'>
+  <tr>
+    <td>Endereços:&nbsp;&nbsp;<%= link_to image_tag('add.gif', :title => 'Adicionar Endereco'), controller: "enderecos", action: "index" %></td>
+  </tr>
+</table>
+<table id='enderecos'>
+  <tr>
+    <th>Logradouro</th>
+    <th>Numero</th>
+    <th>CEP</th>
+    <th>Cidade</th>
+    <th>Bairro</th>
+    <th>UF</th>
+    <th>Complemento</th>
+  </tr>
+  <% @pessoa.enderecos.each do |endereco| %>
+    <tr>
+      <td><%= endereco.logradouro -%></td>
+      <td><%= endereco.numero -%></td>
+      <td><%= endereco.cep -%></td>
+      <td><%= endereco.cidade -%></td>
+      <td><%= endereco.bairro -%></td>
+      <td><%= endereco.uf -%></td>
+      <td><%= endereco.complemento -%></td>
+    </tr>
+  <% end %>
+</table>

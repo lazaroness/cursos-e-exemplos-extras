@@ -1,0 +1,4 @@
+foi retirado os seguintes campos da tabela tb_usuario:
+	-> id_cliente
+	-> id_funcionario
+	-> id_layout

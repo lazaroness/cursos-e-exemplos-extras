@@ -1,0 +1,19 @@
+<h1>Pessoas</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pessoas.each do |pessoa| %>
+      <tr>
+        <td><%= pessoa.nome %></td>
+        <td><%= pessoa.email %></td>
+        <td><%= link_to "Detalhes", pessoa %></td>
+      </tr>
+   <% end %>
+ </tbody>
+</table>

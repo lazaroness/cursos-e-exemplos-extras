@@ -1,0 +1,28 @@
+<h1>Perfil <%= @pessoa.tipo -%>:</h1>
+<table class='form'>
+  <tr>
+    <td class="field">NOME:</td>
+    <td class="field_value"><%= @pessoa.nome %></td>
+  </tr>
+  <tr>
+    <td class="field">CPF/CNPJ:</td>
+    <td class="field_value"><%= @pessoa.cpf_cnpj %></td>
+  </tr>
+  <tr>
+    <td class="field">SEXO:</td>
+    <td class="field_value"><%= @pessoa.sexo %></td>
+  </tr>
+  <tr>
+    <td class="field">DATA NASC/FUND:</td>
+    <td class="field_value"><%= date_format_mes(@pessoa.data_nascimento_fundacao) %></td>
+  </tr>
+  <tr>
+    <td class="field">E-MAIL:</td>
+    <td class="field_value"><%= @pessoa.email %></td>
+  </tr>
+</table>
+<br />
+<%= render :partial => 'enderecos' %>
+<br />
+<%= render :partial => 'telefones' %>
+<br />

@@ -1,0 +1,9 @@
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+heroku login
+
+heroku create
+
+git push heroku master
+
+heroku run rake db:migrate

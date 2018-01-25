@@ -1,0 +1,15 @@
+#!/bin/bash
+path=`pwd`
+notify-send "QualyServ" "Servidor de Desenvolvimento está no ar." -i "$path/img/server.svg"
+
+#url='192.168.0.17:8000'
+url='localhost:8000'
+echo "Abrindo o Firefox em: $url"
+firefox $url &
+
+php -S $url
+
+#php -S localhost:8000
+#php -S 192.168.0.54:8000
+#php -S 192.168.2.102:8000
+#php -S 192.168.0.17:8000

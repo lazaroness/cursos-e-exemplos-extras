@@ -1,0 +1,43 @@
+<% unless logged_in? %>
+  <%= render 'sessions/new' %>
+<% end %>
+<style>
+  #servicos {
+    width: 1200px;
+    height: auto;
+    text-align: center;
+  }
+
+  #servico_individual {
+    width: 200px;
+    height: 75px;
+    background-color: #CCCCCC;
+    float: left;
+    margin: 5px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    padding-top: 25px;
+  }
+
+  #servico_individual:hover {
+    width: 200px;
+    height: 75px;
+    background-color: #000;
+    color: white;
+    float: left;
+    margin: 5px;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    padding-top: 25px;
+  }
+</style>
+
+<div id='servicos'>
+  <% @servicos = Servico.all %>
+  <% @servicos.each do |servico| %>
+  	<div id="servico_individual">
+  	  <%= servico.to_s %><br />
+  	</div>
+  <% end %>
+</div>
+<br />

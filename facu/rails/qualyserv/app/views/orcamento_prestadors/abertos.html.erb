@@ -1,0 +1,38 @@
+<style>
+  #orcamentos_abertos {
+    border:1px black solid;
+  }
+
+  #orcamentos_abertos th {
+    padding: 10px;
+  }
+
+  #orcamentos_abertos td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<h1>Propostas em Aberto</h1>
+<table id="orcamentos_abertos">
+  <tr>
+    <th>Serviço</th>
+    <th>Cliente</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th>Observação</th>
+    <th>Funções</th>
+  </tr>
+  <% @pessoa.propostas_em_aberto.each do |proposta| %>
+    <tr>
+      <td>&nbsp;<%= Servico.find(proposta.orcamento.servico_id).to_s -%></td>
+      <td>&nbsp;<%= proposta.orcamento.solicitante.to_s %></td>
+      <td>&nbsp;<%= proposta.orcamento.descricao_servico %></td>
+      <td>&nbsp;<%= proposta.valor_acordado %></td>
+      <td>&nbsp;<%= proposta.observacao %></td>
+      <td style="text-align: center;">
+        <%= link_to image_tag('detalhes.gif', :title => 'Detalhes'), controller: "orcamento_prestadors", action: "show", id: proposta.id %>
+        <%= link_to image_tag('cancelar.gif', :title => 'Cancelar'), controller: "orcamento_prestadors", action: "cancelar", id: proposta.id %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,108 @@
+<h1>Cadastro de Endereço:</h1>
+<% if @endereco.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert-error">
+      O formulário contém <%= pluralize(@endereco.errors.count, "erro") %>.
+    </div>
+    <ul>
+      <% @endereco.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @endereco do |f| %>
+  <table class='form'>
+    <%= f.hidden_field :pessoa_id, value: @pessoa.id %>
+    <tr>
+      <td class="field">CEP:</td>
+      <td class="field_value"><%= f.text_field :cep %></td>
+    </tr>
+    <tr>
+      <td class="field">Logradouro:</td>
+      <td class="field_value"><%= f.text_field :logradouro %></td>
+    </tr>
+    <tr>
+      <td class="field">Numero:</td>
+      <td class="field_value"><%= f.text_field :numero %></td>
+    </tr>
+    <tr>
+      <td class="field">Bairro:</td>
+      <td class="field_value"><%= f.text_field :bairro %></td>
+    </tr>
+    <tr>
+      <td class="field">Cidade:</td>
+      <td class="field_value"><%= f.text_field :cidade %></td>
+    </tr>
+    <tr>
+      <td class="field">UF:</td>
+      <td class="field_value"><%= f.text_field :uf %></td>
+    </tr>
+    <tr>
+      <td class="field">Complemento:</td>
+      <td class="field_value"><%= f.text_field :complemento %></td>
+    </tr>
+    <tr>
+      <td class="actions" colspan='2'><%= f.submit "Gravar"%></td>
+    </tr>
+  </table>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#endereco_cep').focus();
+    $('#endereco_cep').mask("00000-000", {placeholder: "_____-___"});
+
+    // CONSULTA DO CEP PELO VIACEP
+    function limpa_formulário_cep() {
+      $("#endereco_logradouro").val("");
+      $("#endereco_bairro").val("");
+      $("#endereco_cidade").val("");
+      $("#endereco_uf").val("");
+      //$("#ibge").val("");
+    }
+
+    //Quando o campo cep perde o foco.
+    $("#endereco_cep").blur(function() {
+      //Nova variável "cep" somente com dígitos.
+      var cep = $(this).val().replace(/\D/g, '');
+      //Verifica se campo cep possui valor informado.
+      if (cep != "") {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
+          //Preenche os campos com "..." enquanto consulta webservice.
+          $("#endereco_logradouro").val("...");
+          $("#endereco_bairro").val("...");
+          $("#endereco_cidade").val("...");
+          $("#endereco_uf").val("...");
+          // $("#ibge").val("...")
+
+          //Consulta o webservice viacep.com.br/
+          $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+            if (!("erro" in dados)) {
+              //Atualiza os campos com os valores da consulta.
+              $("#endereco_logradouro").val(dados.logradouro);
+              $("#endereco_bairro").val(dados.bairro);
+              $("#endereco_cidade").val(dados.localidade);
+              $("#endereco_uf").val(dados.uf);
+              // $("#ibge").val(dados.ibge);
+              $("#endereco_numero").focus();
+            } else {
+              //CEP pesquisado não foi encontrado.
+              limpa_formulário_cep();
+              alert("CEP não encontrado.");
+            }
+          });
+        } else {
+          //cep é inválido.
+          limpa_formulário_cep();
+          alert("Formato de CEP inválido.");
+        }
+      } else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+      }
+    });
+  });
+</script>

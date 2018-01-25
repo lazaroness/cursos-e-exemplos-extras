@@ -1,0 +1,30 @@
+<br />
+<h1>Serviços&nbsp;</h1>
+<table id='servicos_prestados'>
+  <%= form_tag :action => 'alterar_servicos_do' do %>
+    <% Servico.all.each do |servico| %>
+      <tr>
+        <td style="text-align: left;">&nbsp;<%= servico.to_s -%></td>
+        <td>
+          <% if @servicos.include?(servico) %>
+            <%= check_box_tag("servicos[#{servico.to_chave}]", value = servico.id, checked = true, options = {}) -%>
+          <% else %>
+            <%= check_box_tag("servicos[#{servico.to_chave}]", value = servico.id, checked = false, options = {}) -%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="actions" colspan='2'><%= submit_tag "Gravar" %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+
+<!-- <script type="text/javascript">
+//  function timedRefresh(timeoutPeriod) {
+//    setTimeout("location.reload(true);",timeoutPeriod);
+//  }
+
+//  window.onload = timedRefresh(5000);
+</script> -->

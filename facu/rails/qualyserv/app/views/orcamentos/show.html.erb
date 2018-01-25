@@ -1,0 +1,59 @@
+<style>
+  #detalhes_orcamento {
+    border:1px black solid;
+  }
+
+  #detalhes_orcamento th {
+    padding: 10px;
+  }
+
+  #detalhes_orcamento td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<h1>Dados</h1>
+<table id='detalhes_orcamento'>
+  <tr>
+    <td>Solicitante:</td>
+    <td><%= @orcamento.solicitante -%></td>
+  </tr>
+  <tr>
+    <td>Endereço:</td>
+    <td><%= @orcamento.endereco -%></td>
+  </tr>
+  <tr>
+    <td>Serviço</td>
+    <td><%= Servico.find(@orcamento.servico_id).to_s -%></td>
+  </tr>
+  <tr>
+    <td>Descrição Serviço:</td>
+    <td><%= @orcamento.to_s -%></td>
+  </tr>
+</table>
+<br />
+<h1>Propostas</h1>
+<table id='detalhes_orcamento'>
+  <tr>
+    <th>Prestador</th>
+    <th>Observação</th>
+    <th>Valor</th>
+    <th>Funções</th>
+  </tr>
+  <% if @orcamento.propostas.empty? %>
+    <tr>
+      <td colspan='4'><font color='red'>Nenhum registro foi encontrado.</font></td>
+    </tr>
+  <% else %>
+    <% @orcamento.propostas.each do |proposta| %>
+      <tr>
+        <td>&nbsp;<%= proposta.prestador.to_s -%></td>
+        <td>&nbsp;<%= proposta.observacao -%></td>
+        <td>&nbsp;<%= proposta.valor_acordado -%></td>
+        <td style="text-align: center;">
+          <%= link_to image_tag('detalhes.gif', :title => 'Detalhes'), controller: "orcamento_prestadors", action: "show", id: proposta.id %>
+        </td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -1,0 +1,27 @@
+<h1>Cadasro de Telefone:</h1>
+<%= form_for @telefone do |f| %>
+  <table class='form'>
+    <%= f.hidden_field :pessoa_id, value: @pessoa.id %>
+    <tr>
+      <td class="field">Tipo:</td>
+      <td class="field_value"><%= f.select(:tipo, Telefone::TIPO) %></td>
+    </tr>
+    <tr>
+      <td class="field">DDD:</td>
+      <td class="field_value"><%= f.text_field :ddd %></td>
+    </tr>
+    <tr>
+      <td class="field">Numero:</td>
+      <td class="field_value"><%= f.text_field :numero %></td>
+    </tr>
+    <tr>
+      <td class="actions" colspan='2'><%= f.submit "Gravar"%></td>
+    </tr>
+  </table>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#telefone_ddd').mask("000", {placeholder: "___"});
+    $('#telefone_numero').mask("0 0000-0000", {placeholder: "_ ____-____"});
+  });
+</script>

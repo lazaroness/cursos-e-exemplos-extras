@@ -1,0 +1,35 @@
+<br />
+<%= form_for @orcamento do |f| %>
+  <% if @orcamento.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@orcamento.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @orcamento.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class='form'>
+    <tr>
+      <td class="field">Serviço Desejado:</td>
+      <td class="field_value"><%= f.select(:servico_id, Servico.select_hash) %></td> 
+    </tr>
+    <tr>
+      <td class="descricao_servico">DESCRIÇÃO:</td>
+      <td class="descricao_servico_value"><%= f.text_area :descricao_servico, size: "50x10" %></td>
+    </tr>
+    <tr>
+      <td class="field">Endereço:</td>
+      <td class="field_value"><%= f.select(:endereco_id, @pessoa.enderecos_hash) %></td>
+    </tr>
+    <%= f.hidden_field :solicitante_id, value: @pessoa.id %>
+    <%= f.hidden_field :fechado, value: false %>
+    <%= f.hidden_field :concluido, value: false %>
+    <tr>
+      <td class="actions" colspan='2'><%= f.submit "Gravar"%></td>
+    </tr>
+  </table>
+<% end %>

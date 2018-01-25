@@ -1,0 +1,36 @@
+<style>
+  #telefones {
+    border:1px black solid;
+  }
+
+  #telefones th {
+    padding: 10px;
+  }
+
+  #telefones td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<table id='titulo_tefones'>
+  <tr>
+    <td>Telefones:</td>
+    <td><%= link_to image_tag('add.gif', :title => 'Adicionar Telefones'), action: "new_telefone" %></td>
+  </tr>
+</table>
+<table id='telefones'>
+  <tr>
+    <th>TIPO</th>
+    <th>DDI</th>
+    <th>DDD</th>
+    <th>NUMERO</th>
+  </tr>
+  <% @pessoa.telefones.each do |telefone| %>
+    <tr>
+      <td><%= telefone.tipo -%></td>
+      <td><%= telefone.ddi -%></td>
+      <td><%= telefone.ddd -%></td>
+      <td><%= telefone.numero -%></td>
+    </tr>
+  <% end %>
+</table>

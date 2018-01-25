@@ -1,0 +1,12 @@
+<%= form_for :session, url: sign_in_path do |f| %>
+  <table id='login'>
+    <tr>
+      <td>Email:&nbsp;<%= f.email_field :email, autofocus: true %></td>
+      <td>Senha:&nbsp;<%= f.password_field :password, autocomplete: "off" %></td>
+      <td>&nbsp;<%= f.submit "Entrar" %></td>
+    </tr>
+    <tr>
+      <td colspan='3' style='text-align: right;'>Não tem cadastro? <%= link_to "Cadastrar-se", new_pessoa_path %></td>
+    </tr>
+  </table>
+<% end %>

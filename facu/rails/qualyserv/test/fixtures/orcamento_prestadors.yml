@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orcamento_id: 1
+  prestador_id: 1
+  valor_acordado: 1.5
+
+two:
+  orcamento_id: 1
+  prestador_id: 1
+  valor_acordado: 1.5

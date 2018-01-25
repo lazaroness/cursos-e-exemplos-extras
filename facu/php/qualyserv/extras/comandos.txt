@@ -1,0 +1,14 @@
+# BACKUP DA BASE DE DADOS
+mysqldump -u root -p qualyserv > qualyserv.sql
+
+mysqldump --compatible=postgresql -u root -p qualyserv > qualyserv-postgresql.sql
+
+# RESTAURANDO O BANCO DE DADOS
+1- Crie o banco
+mysql -u root -p banco_criado < qualyserv.sql
+
+# COMO CONVERTER A BASE DO MYSQL PARA O POSTGRESQL
+http://imasters.com.br/artigo/15556/postgresql/migrando-mysql-para-postgresql
+
+# INSTALACAO PARA COMPATIBILIDADE DO PHPMYADMIN COM O PHP7
+apt-get install php-mbstring

@@ -1,0 +1,35 @@
+<style>
+  #orcamentos_abertos {
+    border:1px black solid;
+  }
+
+  #orcamentos_abertos th {
+    padding: 10px;
+  }
+
+  #orcamentos_abertos td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<h1>Orçamentos Abertos</h1>
+<table id='orcamentos_abertos'>
+  <tr>
+    <th>Serviço</th>
+    <th>Descrição</th>
+    <th>Funções</th>
+  </tr>
+  <% if @orcamentos.empty? %>
+    <tr>
+      <td colspan='3'><font color='red'>Nenhum registro foi encontrado.</font></td>
+    </tr>
+  <% else %>
+    <% @orcamentos.each do |orcamento| %>
+      <tr>
+        <td><%= Servico.find(orcamento.servico_id).to_s -%></td>
+        <td><%= orcamento.to_s -%></td>
+        <td><%= link_to image_tag('detalhes.gif', :title => 'Detalhes'), action: "show", id: orcamento.id %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

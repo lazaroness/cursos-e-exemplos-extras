@@ -1,0 +1,22 @@
+<header>
+  <div>
+    <nav>
+      <ul>
+        <% if logged_in? %>
+          <li><%= link_to "Pessoas", pessoas_path %></li>
+          <li>
+            <ul>
+              <li><%= link_to "Perfil", current_pessoa %></li>
+              <li><%= link_to "Configurações", edit_pessoa_path(current_pessoa) %></li>
+              <li>
+                <%= link_to "Sair", sign_out_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Entrar", root_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

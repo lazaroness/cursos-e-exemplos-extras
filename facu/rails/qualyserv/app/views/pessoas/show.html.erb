@@ -1,0 +1,5 @@
+<% if @pessoa.cliente? %>
+  <%= render 'perfil_cliente' %>
+<% else %>
+  <%= render 'perfil_prestador' %>
+<% end %>

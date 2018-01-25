@@ -1,0 +1,5 @@
+# link para pagina do github do phpactiverecord compativel com o php7
+https://github.com/visavi/phpactiverecord
+
+# link exemplo upload de arquivos
+http://tableless.com.br/upload-de-arquivos-com-php/

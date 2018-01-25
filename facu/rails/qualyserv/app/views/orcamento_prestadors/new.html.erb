@@ -1,0 +1,51 @@
+<br />
+<%= form_for @orcamento_prestador do |f| %>
+  <% if @orcamento_prestador.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@orcamento_prestador.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @orcamento_prestador.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class='form'>
+    <tr>
+      <td class="field">Cliente:</td>
+      <td class="field_value"><%= @orcamento.solicitante.to_s %></td>
+    </tr>
+    <tr>
+      <td class="field">Serviço:</td>
+      <td class="field_value"><%= Servico.find(@orcamento.servico_id).to_s %></td>
+    </tr>
+    <tr>
+      <td class="descricao_servico">DESCRIÇÃO:</td>
+      <td class="descricao_servico_value"><%= @orcamento.descricao_servico %></td>
+    </tr>
+    <tr>
+      <td class="field">Endereço:</td>
+      <td class="field_value"><%= @orcamento.endereco.to_s %></td>
+    </tr>
+    <tr>
+      <td colspan='2'><hr /></td>
+    </tr>
+    <tr>
+      <td class='field'>Valor:</td>
+      <td class='field_value'><%= f.text_field(:valor_acordado) -%></td>
+    </tr>
+    <tr>
+      <td class='field'>Observação:</td>
+      <td class='field_value'><%= f.text_area :observacao, size: "50x10" -%></td>
+    </tr>
+    <%= f.hidden_field :prestador_id, value: @pessoa.id %>
+    <%= f.hidden_field :orcamento_id, value: @orcamento.id %>
+    <%= f.hidden_field :fechado, value: false %>
+    <%= f.hidden_field :cancelado, value: false %>
+    <tr>
+      <td class="actions" colspan='2'><%= f.submit "Gravar"%></td>
+    </tr>
+  </table>
+<% end %>

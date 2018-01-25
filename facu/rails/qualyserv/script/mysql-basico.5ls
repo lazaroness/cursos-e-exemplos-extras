@@ -1,0 +1,35 @@
+#------------------------------------------------------------------------------
+# BASICO DE MYSQL VIA TERMINAL
+#------------------------------------------------------------------------------
+
+# LOGANDO NO MYSQL
+sudo mysql -u root -p
+
+# VISUALIZANDO OS BANCOS DE DADOS
+show databases;
+
+# CRIANDO BANCO DE DADOS
+CREATE DATABASE nome-do-banco;
+
+# SELECIONANDO QUAL BANCO DE DADOS VAI USAR
+use nome-do-banco;
+
+# VISUALIZANDO AS INFORMAÇÕES DE UMA TABELA
+DESCRIBE nome-da-tabela;
+ou
+DESC nome-da-tabela;
+
+# VISUALIZANDO OS DADOS DE UMA TABELA
+SELECT * FROM nome-da-tabela;
+
+# DELETANDO UMA TABELA
+DROP TABLE nome-da-tabela;
+
+# DELETANDO UM BANCO DE DADOS
+DROP DATABASE nome-do-banco;
+
+# COMO LIMPAR UMA TABELA
+TRUNCATE TABLE nome-da-tabela;
+
+# EXEMPLO ALTERAR REGISTRO
+UPDATE nome-da-tabela SET campo=valor WHERE id = 1;

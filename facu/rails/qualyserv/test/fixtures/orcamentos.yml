@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  solicitante_id: 1
+  prestador_id: 1
+  endereco_id: 1
+
+two:
+  solicitante_id: 1
+  prestador_id: 1
+  endereco_id: 1

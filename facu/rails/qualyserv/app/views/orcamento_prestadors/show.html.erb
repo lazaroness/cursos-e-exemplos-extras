@@ -1,0 +1,56 @@
+<style>
+  #orcamento_prestador {
+    border:1px black solid;
+  }
+
+  #orcamento_prestador th {
+    padding: 10px;
+  }
+
+  #orcamento_prestador td {
+    border: 1px black solid;
+    padding: 5px;
+  }
+</style>
+<table id='orcamento_prestador'>
+  <tr>
+    <td>Numero Orçamento:</td>
+    <td>&nbsp;<%= @orcamento_prestador.orcamento_id -%></td>
+  </tr>
+  <tr>
+    <td>Cliente:</td>
+    <td>&nbsp;<%= @orcamento_prestador.orcamento.solicitante.to_s %></td>
+  </tr>
+  <tr>
+    <td>Serviço:</td>
+    <td>&nbsp;<%= Servico.find(@orcamento_prestador.orcamento.servico_id).to_s %></td>
+  </tr>
+  <tr>
+    <td>Descrição:</td>
+    <td>&nbsp;<%= @orcamento_prestador.orcamento.descricao_servico %></td>
+  </tr>
+  <tr>
+    <td>Endereço:</td>
+    <td>&nbsp;<%= @orcamento_prestador.orcamento.endereco.to_s %></td>
+  </tr>
+  <tr>
+    <td>Prestador:</td>
+    <td>&nbsp;<%= @orcamento_prestador.prestador.to_s -%></td>
+  </tr>
+  <tr>
+    <td>Valor:</td>
+    <td>&nbsp;<%= @orcamento_prestador.valor_acordado -%></td>
+  </tr>
+  <tr>
+    <td>Observação:</td>
+    <td>&nbsp;<%= @orcamento_prestador.observacao -%></td>
+  </tr>
+  <tr>
+    <td>Fechado:</td>
+    <td>&nbsp;<%= boolean_format(@orcamento_prestador.fechado) %></td>
+  </tr>
+  <tr>
+    <td>Cancelado:</td>
+    <td>&nbsp;<%= boolean_format(@orcamento_prestador.cancelado) %></td>
+  </tr>
+</table>

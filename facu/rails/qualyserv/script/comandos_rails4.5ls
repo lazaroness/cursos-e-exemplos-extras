@@ -1,0 +1,23 @@
+#-------------------------------------------------------------------------------
+# COMANDOS BASICOS RAILS 4
+#-------------------------------------------------------------------------------
+-> Criando Controller
+rails generate controller Users new
+
+-> Criando Model
+rails generate model User name:string email:string
+
+-> Rodando as Migrates
+rake db:migrate
+
+-> Criando uma migrate avulsa
+rails generate migration name_migracao
+
+-> Adicionando as rotas padrão do REST de um controller no config/routes.rb
+rails generate resource users
+
+-> Visualizando todas as rotas existentes
+rake routes
+
+-> Criando nova aplicação com postgresql
+rails new myapp --database=postgresql

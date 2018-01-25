@@ -1,0 +1,14 @@
+<br />
+<h1>Serviços Prestados &nbsp;<%= link_to image_tag('add.gif', :title => 'Alterar Serviçõs'), action: "alterar_servicos" %></h1>
+<table id='servicos_prestados'>
+  <% @pessoa.servicos.each do |servico| %>
+    <tr>
+      <td style="text-align: left;">&nbsp;<%= servico.to_s -%></td>
+<!--      <td>
+        <%#= check_box_tag("servico[#{servico.to_chave}]", value = servico.id, checked = false, options = {}) -%>
+      </td>
+-->
+    </tr>
+  <% end %>
+</table>
+<br />

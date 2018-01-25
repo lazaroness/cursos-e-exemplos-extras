@@ -1,0 +1,51 @@
+#-------------------------------------------------------------------------------
+# CONFIGURANDO O AMBIENTE
+#-------------------------------------------------------------------------------
+# URL USADA COMO BASE
+# http://glaucocustodio.com/2012/08/23/
+# instalando-e-configurando-ambiente-ruby-on-rails-no-linux/
+#-------------------------------------------------------------------------------
+-> DESINSTALANDO O RUBY
+	whereis ruby
+	sudo rm -rf /usr/local/lib/ruby; sudo rm -rf /usr/lib/ruby
+	sudo rm -f /usr/local/bin/ruby; sudo rm -f /usr/bin/ruby
+	sudo rm -f /usr/local/bin/irb; sudo rm -f /usr/bin/irb
+	sudo rm -f /usr/local/bin/gem; sudo rm -f /usr/bin/gem
+-> INSTALANDO ALGUMAS DEPENDENCIAS
+sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl
+git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3
+libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison
+subversion pkg-config
+-> INSTALANDO O MYSQL
+	sudo apt-get install mysql-server
+	sudo apt-get install libmysqlclient-dev
+-> INSTALANDO O POSTGRESQL
+	sudo apt-get install postgresql-9.4
+	sudo apt-get install libpq-devgem install pg
+-> INSTALANDO O PGADMIN 3
+	sudo apt-get install pgadmin3
+
+-> INSTALANDO O GERENCIADOR DE VERSOES DO RUBY
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+curl -L https://get.rvm.io | bash -s stable
+
+-> VISUALIZANDO AS VERSOES DISPONIVEIS DO RUBY
+	rvm list known
+-> INSTALANDO O RUBY
+	rvm install 2.1.4
+-> DEFININDO QUAL VERSAO SERA A DEFAULT
+	rvm use 2.1.4 --default
+
+-> INSTALANDO O RAILS
+gem install rails
+
+-> INSTALANDO CONEXAO COM O POSTGRESQL
+gem install pg
+
+-> CRIANDO PROJETO COM RAILS
+	# COM POSTGRESQL
+		rails new name_project --database=postgresql
+	# COM MYSQL
+		rails new name_project --database=mysql
+	# COM SQLITE
+		rails new name_project

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QualyServ</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="/assets/jquery.mask.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id='container'>
+    <div id='topo'>
+    </div>
+    <div id='menu'><%= render 'home/menu' %></div>
+    <%= yield %>
+  </div>
+  <br />
+  <footer>
+    <p>Copyright &copy <%= Time.now.year -%> QualyServ</p>
+  </footer>
+</body>
+</html>
