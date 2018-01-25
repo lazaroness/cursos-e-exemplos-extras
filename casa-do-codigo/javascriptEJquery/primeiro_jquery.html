@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Primeiro jQuery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p class="par">Primeira linha</p>
+    <p class="impar">Segunda linha</p>
+    <input type="text" id="texto" class="par" value="um texto qualquer">
+  </body>
+<!--  <script src="http://code.jquery.com/jquery-2.0.0.js"></script> -->
+  <script src="javascripts/jquery-3.1.0.min.js"></script>
+  <script>
+    jQuery("p").css("background-color", "lightgreen");
+    jQuery(".par").css("background-color", "lightblue");
+    jQuery("#texto").css("color", "white").val("esse é o novo texto");
+  </script>
+</html>
